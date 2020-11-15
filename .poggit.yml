@@ -1,0 +1,9 @@
+--- # Poggit-CI Manifest. Open the CI at https://poggit.pmmp.io/ci/CTMCentral/BanInformation
+build-by-default: true
+branches:
+- master
+projects:
+  BanInformation:
+    path: ""
+    icon: "icon.ong"
+...
