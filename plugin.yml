@@ -1,0 +1,17 @@
+name: BanInformation
+main: ctmcentral\BanInformation\Main
+version: 0.1.0
+api: 3.0.0
+description: "A plugin which displays stored ban information"
+author: "jasonwynn10"
+commands:
+  baninformaton:
+    usage: "/bi <player: target>"
+    permission: baninformation.cmd
+    description: "Displays the PocketMine-saved ban information"
+    aliases:
+      - bi
+permissions:
+  baninformation.cmd:
+    description: "Allows access to the ban information command"
+    default: op
