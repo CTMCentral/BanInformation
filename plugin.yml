@@ -6,7 +6,7 @@ description: "A plugin which displays stored ban information"
 author: "jasonwynn10"
 commands:
   baninformaton:
-    usage: "/bi <player: target>"
+    usage: "/bi <player: target> or /bi <IP: string>"
     permission: baninformation.cmd
     description: "Displays the PocketMine-saved ban information"
     aliases:

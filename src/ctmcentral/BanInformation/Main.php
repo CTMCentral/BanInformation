@@ -16,6 +16,20 @@ class Main extends PluginBase {
 		if(!isset($args[0])) {
 			return false;
 		}
+		$addressParts = explode(".", $args[0]);
+		if(count($addressParts) == 4) {
+			$sender->sendMessage(TextFormat::GREEN . "--- Ban record of IP " . $args[0] . " ---");
+			foreach($this->getServer()->getIPBans()->getEntries() as $entry) {
+				if($entry->getName() === $args[0]) {
+					$sender->sendMessage(TextFormat::YELLOW . "Creation: " . $entry->getCreated()->format(self::FORMAT));
+					$sender->sendMessage(TextFormat::YELLOW . "Expires: " . ($entry->getExpires() ? $entry->getExpires()->format(self::FORMAT) : "Forever"));
+					$sender->sendMessage(TextFormat::YELLOW . "Reason: " . $entry->getReason());
+					$sender->sendMessage(TextFormat::YELLOW . "Staff: " . $entry->getSource());
+					$sender->sendMessage("---");
+				}
+			}
+			return true;
+		}
 		$player = $this->getServer()->getPlayer($args[0]) ?? new OfflinePlayer($this->getServer(), $args[0]);
 		$sender->sendMessage(TextFormat::GREEN . "--- Ban record of " . $player->getName() . " ---");
 		foreach($this->getServer()->getNameBans()->getEntries() as $entry) {
