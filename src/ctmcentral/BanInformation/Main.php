@@ -13,6 +13,9 @@ class Main extends PluginBase {
 	private CONST FORMAT = "l, F j H:i:s T";
 
 	public function onCommand(CommandSender $sender, Command $command, string $label, array $args) : bool {
+		if(!isset($args[0])) {
+			return false;
+		}
 		$player = $this->getServer()->getPlayer($args[0]) ?? new OfflinePlayer($this->getServer(), $args[0]);
 		$sender->sendMessage(TextFormat::GREEN . "--- Ban record of " . $player->getName() . " ---");
 		foreach($this->getServer()->getNameBans()->getEntries() as $entry) {
